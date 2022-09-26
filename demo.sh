@@ -7,9 +7,8 @@
 
 # boostrap environment
 kind create cluster
-sleep 3
+sleep 30
 kubectl apply -f ds.yaml
-sleep 3
 clear
 
 # demo commands
@@ -19,11 +18,10 @@ pe "kubectl get pods"
 pe "docker exec kind-control-plane ctr -n k8s.io images list | grep alpine"
 pe "helm install -n eraser-system eraser eraser/eraser --create-namespace"
 pe "kubectl get po -n eraser-system"
-sleep 10
+sleep 45
 pe "kubectl get po -n eraser-system"
-sleep 300
+sleep 1000
 pe "docker exec kind-control-plane ctr -n k8s.io images list | grep alpine"
 
 # teardown environment
-sleep 5
 kind delete cluster
