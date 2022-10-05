@@ -20,8 +20,9 @@ pe "helm install -n eraser-system eraser eraser/eraser --create-namespace"
 pe "kubectl get po -n eraser-system"
 sleep 45
 pe "kubectl get po -n eraser-system"
-sleep 1000
+sleep 360
 pe "docker exec kind-control-plane ctr -n k8s.io images list | grep alpine"
+wait
 
 # teardown environment
 kind delete cluster
